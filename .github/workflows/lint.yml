@@ -13,6 +13,7 @@ jobs:
         node: ["16.x"]
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
+    environment: production
 
     steps:
       - name: Checkout repo

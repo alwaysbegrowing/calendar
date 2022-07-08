@@ -12,6 +12,8 @@ jobs:
       APP_URL: ${{ secrets.APP_URL }}
       CRON_API_KEY: ${{ secrets.CRON_API_KEY }}
     runs-on: ubuntu-latest
+    environment: production
+
     steps:
       - name: cURL request
         if: ${{ env.APP_URL && env.CRON_API_KEY }}

@@ -10,6 +10,8 @@ jobs:
         node: ["16.x"]
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
+    environment: production
+
     steps:
       - name: Ensure All Conditional Checks Have Passed
         uses: blend/require-conditional-status-checks@2022.02.04
