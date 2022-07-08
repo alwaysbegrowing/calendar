@@ -1,10 +1,10 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "editor.formatOnSave": false,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
-  },
+  "editor.formatOnSave": true,
   "typescript.preferences.importModuleSpecifier": "non-relative",
   "spellright.language": ["en"],
-  "spellright.documentTypes": ["markdown"]
+  "spellright.documentTypes": ["markdown"],
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true
+  }
 }
