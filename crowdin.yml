@@ -3,8 +3,8 @@
 #
 "project_id_env" : "CROWDIN_PROJECT_ID"
 "api_token_env" : "CROWDIN_PERSONAL_TOKEN"
-"project_id": ""
-"api_token": ""
+"project_id": "1"
+"api_token": "2"
 "base_path" : "."
 "base_url" : "https://crowdin.com"
 
