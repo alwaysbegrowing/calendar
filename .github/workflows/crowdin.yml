@@ -15,17 +15,11 @@ jobs:
       uses: actions/checkout@v2
 
     - name: crowdin action
-      uses: crowdin/github-action@1.4.9
+      uses: crowdin/github-action@1.4.10
       with:
         upload_translations: true
         download_translations: true
-        # This is a numeric id, not to be confused with Crowdin API v1 "project identifier" string
-        # See "API v2" on https://crowdin.com/project/<your-project>/settings#api
-        project_id: ${{ secrets.CROWDIN_PROJECT_ID }}
-
-        # A personal access token, not to be confused with Crowdin API v1 "API key"
-        # See https://crowdin.com/settings#api-key to generate a token
-        token: ${{ secrets.CROWDIN_PERSONAL_TOKEN }}
+        crowdin_branch_name: 'github_action'
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         CROWDIN_PROJECT_ID: ${{ secrets.CROWDIN_PROJECT_ID }}
