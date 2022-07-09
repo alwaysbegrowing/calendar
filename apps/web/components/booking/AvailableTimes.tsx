@@ -1,5 +1,4 @@
 import { SchedulingType } from "@prisma/client";
-import Link from "next/link";
 import { useRouter } from "next/router";
 import { FC, useEffect, useState } from "react";
 
@@ -44,72 +43,86 @@ const AvailableTimes: FC<AvailableTimesProps> = ({
   const { rescheduleUid } = router.query;
 
   const [brand, setBrand] = useState("#292929");
+  const [selectedSlots, setSelectedSlots] = useState<string[]>([]);
 
   useEffect(() => {
     setBrand(getComputedStyle(document.documentElement).getPropertyValue("--brand-color").trim());
   }, []);
 
   return (
-    <div className="mt-8 flex flex-col text-center sm:mt-0 sm:w-1/3 sm:pl-4 md:-mb-5">
-      <div className="mb-4 text-left text-lg font-light text-gray-600">
-        <span className="text-bookingdarker w-1/2 dark:text-white">
-          <strong>{nameOfDay(i18n.language, Number(date.format("d")))}</strong>
-          <span className="text-bookinglight">
-            {date.format(", D ")}
-            {date.toDate().toLocaleString(i18n.language, { month: "long" })}
+    <>
+      <div className="mt-8 flex flex-col text-center sm:mt-0 sm:w-1/3 sm:pl-4 md:-mb-5">
+        <div className="mb-4 text-left text-lg font-light text-gray-600">
+          <span className="text-bookingdarker w-1/2 dark:text-white">
+            <strong>{nameOfDay(i18n.language, Number(date.format("d")))}</strong>
+            <span className="text-bookinglight">
+              {date.format(", D ")}
+              {date.toDate().toLocaleString(i18n.language, { month: "long" })}
+            </span>
           </span>
-        </span>
-      </div>
-      <div className="grid flex-grow grid-cols-2 gap-x-2 overflow-y-auto sm:block md:h-[364px]">
-        {slots.length > 0 &&
-          slots.map((slot) => {
-            type BookingURL = {
-              pathname: string;
-              query: Record<string, string | number | string[] | undefined>;
-            };
-            const bookingUrl: BookingURL = {
-              pathname: "book",
-              query: {
-                ...router.query,
-                date: dayjs(slot.time).format(),
-                type: eventTypeId,
-                slug: eventTypeSlug,
-                /** Treat as recurring only when a count exist and it's not a rescheduling workflow */
-                count: recurringCount && !rescheduleUid ? recurringCount : undefined,
-              },
-            };
+        </div>
+        <div className="grid grow grid-cols-2 gap-x-2 overflow-y-auto sm:block md:h-[364px]">
+          {slots.length > 0 &&
+            slots.map((slot) => {
+              type BookingURL = {
+                pathname: string;
+                query: Record<string, string | number | string[] | undefined>;
+              };
+              const bookingUrl: BookingURL = {
+                pathname: "book",
+                query: {
+                  ...router.query,
+                  date: dayjs(slot.time).format(),
+                  type: eventTypeId,
+                  slug: eventTypeSlug,
+                  /** Treat as recurring only when a count exist and it's not a rescheduling workflow */
+                  count: recurringCount && !rescheduleUid ? recurringCount : undefined,
+                },
+              };
 
-            if (rescheduleUid) {
-              bookingUrl.query.rescheduleUid = rescheduleUid as string;
-            }
+              if (rescheduleUid) {
+                bookingUrl.query.rescheduleUid = rescheduleUid as string;
+              }
 
-            if (schedulingType === SchedulingType.ROUND_ROBIN) {
-              bookingUrl.query.user = slot.users;
-            }
+              if (schedulingType === SchedulingType.ROUND_ROBIN) {
+                bookingUrl.query.user = slot.users;
+              }
 
-            // If event already has an attendee add booking id
-            if (slot.bookingUid) {
-              bookingUrl.query.bookingUid = slot.bookingUid;
-            }
+              // If event already has an attendee add booking id
+              if (slot.bookingUid) {
+                bookingUrl.query.bookingUid = slot.bookingUid;
+              }
 
-            return (
-              <div key={dayjs(slot.time).format()}>
-                {/* Current there is no way to disable Next.js Links */}
-                {seatsPerTimeSlot && slot.attendees && slot.attendees >= seatsPerTimeSlot ? (
-                  <div
-                    className={classNames(
-                      "text-primary-500 mb-2 block rounded-sm border bg-white py-4 font-medium opacity-25  dark:border-transparent dark:bg-gray-600 dark:text-neutral-200 ",
-                      brand === "#fff" || brand === "#ffffff" ? "border-brandcontrast" : "border-brand"
-                    )}>
-                    {dayjs(slot.time).tz(timeZone()).format(timeFormat)}
-                    {!!seatsPerTimeSlot && <p className={`text-sm`}>{t("booking_full")}</p>}
-                  </div>
-                ) : (
-                  <Link href={bookingUrl} prefetch={false}>
-                    <a
+              return (
+                <div key={dayjs(slot.time).format()}>
+                  {/* Current there is no way to disable Next.js Links */}
+                  {seatsPerTimeSlot && slot.attendees && slot.attendees >= seatsPerTimeSlot ? (
+                    <div
                       className={classNames(
-                        "text-primary-500 hover:bg-brand hover:text-brandcontrast dark:hover:bg-darkmodebrand dark:hover:text-darkmodebrandcontrast mb-2 block rounded-sm border bg-white py-4 font-medium hover:text-white dark:border-transparent dark:bg-gray-600 dark:text-neutral-200 dark:hover:border-black",
+                        "text-primary-500 mb-2 block rounded-sm border bg-white py-4 font-medium opacity-25  dark:border-transparent dark:bg-gray-600 dark:text-neutral-200 ",
                         brand === "#fff" || brand === "#ffffff" ? "border-brandcontrast" : "border-brand"
+                      )}>
+                      {dayjs(slot.time).tz(timeZone()).format(timeFormat)}
+                      {!!seatsPerTimeSlot && <p className={`text-sm`}>{t("booking_full")}</p>}
+                    </div>
+                  ) : (
+                    <a
+                      onClick={() => {
+                        if (selectedSlots.includes(slot.time)) {
+                          setSelectedSlots(selectedSlots.filter((s) => s !== slot.time));
+                        } else {
+                          setSelectedSlots((prevState) => [...prevState, slot.time]);
+                        }
+                      }}
+                      className={classNames(
+                        "text-primary-500  hover:bg-brand hover:text-brandcontrast dark:hover:bg-darkmodebrand dark:hover:text-darkmodebrandcontrast mb-2 block rounded-sm border bg-white py-4 font-medium hover:cursor-pointer hover:text-white dark:border-transparent dark:bg-gray-600 dark:text-neutral-200 dark:hover:border-black",
+                        brand === "#fff" || brand === "#ffffff" ? "border-brandcontrast" : "border-brand",
+                        selectedSlots.includes(slot.time)
+                          ? `!dark:bg-darkmodebrand
+                      !dark:text-darkmodebrandcontrast
+                      !dark:border-black !bg-brand
+                      !text-brandcontrast !text-white`
+                          : ""
                       )}
                       data-testid="time">
                       {dayjs(slot.time).tz(timeZone()).format(timeFormat)}
@@ -127,33 +140,33 @@ const AvailableTimes: FC<AvailableTimesProps> = ({
                         </p>
                       )}
                     </a>
-                  </Link>
-                )}
-              </div>
-            );
-          })}
+                  )}
+                </div>
+              );
+            })}
 
-        {!isLoading && !slots.length && (
-          <div className="-mt-4 flex h-full w-full flex-col content-center items-center justify-center">
-            <h1 className="my-6 text-xl text-black dark:text-white">{t("all_booked_today")}</h1>
-          </div>
-        )}
+          {!isLoading && !slots.length && (
+            <div className="-mt-4 flex h-full w-full flex-col content-center items-center justify-center">
+              <h1 className="my-6 text-xl text-black dark:text-white">{t("all_booked_today")}</h1>
+            </div>
+          )}
 
-        {isLoading && !slots.length && (
-          <>
-            <SkeletonContainer className="mb-2">
-              <SkeletonText width="full" height="20" />
-            </SkeletonContainer>
-            <SkeletonContainer className="mb-2">
-              <SkeletonText width="full" height="20" />
-            </SkeletonContainer>
-            <SkeletonContainer className="mb-2">
-              <SkeletonText width="full" height="20" />
-            </SkeletonContainer>
-          </>
-        )}
+          {isLoading && !slots.length && (
+            <>
+              <SkeletonContainer className="mb-2">
+                <SkeletonText width="full" height="20" />
+              </SkeletonContainer>
+              <SkeletonContainer className="mb-2">
+                <SkeletonText width="full" height="20" />
+              </SkeletonContainer>
+              <SkeletonContainer className="mb-2">
+                <SkeletonText width="full" height="20" />
+              </SkeletonContainer>
+            </>
+          )}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
