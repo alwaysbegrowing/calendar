@@ -249,11 +249,12 @@ export default function App({
               </ul>
               <hr className="my-6" />
               <small className="leading-1 block text-gray-500">
-                Every app published on the Cal.com App Store is open source and thoroughly tested via peer
-                reviews. Nevertheless, Cal.com, Inc. does not endorse or certify these apps unless they are
-                published by Cal.com. If you encounter inappropriate content or behaviour please report it.
+                Every app published on the app.abg.garden App Store is open source and thoroughly tested via
+                peer reviews. Nevertheless, app.abg.garden, Inc. does not endorse or certify these apps unless
+                they are published by app.abg.garden. If you encounter inappropriate content or behaviour
+                please report it.
               </small>
-              <a className="mt-2 block text-xs text-red-500" href="mailto:help@cal.com">
+              <a className="mt-2 block text-xs text-red-500" href="mailto:help@abg.garden">
                 <FlagIcon className="inline h-3 w-3" /> Report App
               </a>
             </div>

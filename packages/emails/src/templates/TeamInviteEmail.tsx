@@ -21,7 +21,7 @@ export const TeamInviteEmail = (props: TeamInvite & Partial<React.ComponentProps
         <>{props.language("user_invited_you", { user: props.from, team: props.teamName })}!</>
       </p>
       <p style={{ fontWeight: 400, lineHeight: "24px" }}>
-        <>{props.language("calcom_explained")}</>
+        <>{props.language("abg_explained")}</>
       </p>
       <CallToAction label={props.language("accept_invitation")} href={props.joinLink} />
 
@@ -29,7 +29,7 @@ export const TeamInviteEmail = (props: TeamInvite & Partial<React.ComponentProps
         <p style={{ fontWeight: 400, lineHeight: "24px" }}>
           <>
             {props.language("have_any_questions")}{" "}
-            <a href="mailto:support@cal.com" style={{ color: "#3E3E3E" }} target="_blank" rel="noreferrer">
+            <a href="mailto:support@abg.garden" style={{ color: "#3E3E3E" }} target="_blank" rel="noreferrer">
               <>{props.language("contact_our_support_team")}</>
             </a>
           </>

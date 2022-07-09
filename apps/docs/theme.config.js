@@ -1,10 +1,10 @@
 import { SEO_IMG_DEFAULT, DOCS_URL } from "@calcom/lib/constants";
 
 const themeConfig = {
-  github: "https://github.com/calcom/cal.com",
-  docsRepositoryBase: "https://github.com/calcom/cal.com/blob/main/apps/docs/pages",
-  titleSuffix: " | Cal.com",
-  logo: <h4 className="m-0">Cal.com</h4>,
+  github: "https://github.com/alwaysbegrowing/calendar",
+  docsRepositoryBase: "https://github.com/alwaysbegrowing/calendar/blob/main/apps/docs/pages",
+  titleSuffix: " | app.abg.garden",
+  logo: <h4 className="m-0">app.abg.garden</h4>,
   head: (
     <>
       <meta name="msapplication-TileColor" content="#ffffff" />
@@ -21,11 +21,11 @@ const themeConfig = {
       />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:image" content={SEO_IMG_DEFAULT} />
-      <meta name="twitter:site:domain" content="docs.cal.com" />
+      <meta name="twitter:site:domain" content="docs.abg.garden" />
       <meta name="twitter:url" content={DOCS_URL} />
-      <meta name="og:title" content="Cal.com Documentation" />
+      <meta name="og:title" content="app.abg.garden Documentation" />
       <meta name="og:image" content={SEO_IMG_DEFAULT} />
-      <meta name="apple-mobile-web-app-title" content="Cal.com Docs" />
+      <meta name="apple-mobile-web-app-title" content="app.abg.garden Docs" />
 
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
@@ -41,7 +41,7 @@ const themeConfig = {
   nextLinks: true,
   footer: true,
   footerEditLink: "Edit this page on GitHub",
-  footerText: <>© {new Date().getFullYear()} Cal.com, Inc. All rights reserved.</>,
+  footerText: <>© {new Date().getFullYear()} app.abg.garden, Inc. All rights reserved.</>,
 };
 
 export default themeConfig;

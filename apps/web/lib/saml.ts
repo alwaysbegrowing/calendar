@@ -9,11 +9,11 @@ export const samlLoginUrl = BASE_URL;
 
 export const isSAMLLoginEnabled = samlDatabaseUrl.length > 0;
 
-export const samlTenantID = "Cal.com";
-export const samlProductID = "Cal.com";
+export const samlTenantID = "app.abg.garden";
+export const samlProductID = "app.abg.garden";
 
 const samlAdmins = (process.env.SAML_ADMINS || "").split(",");
-export const hostedCal = BASE_URL === "https://app.cal.com";
+export const hostedCal = BASE_URL === "https://app.abg.garden";
 export const tenantPrefix = "team-";
 
 export const isSAMLAdmin = (email: string) => {

@@ -8,7 +8,7 @@ export const metadata = {
   category: "messaging",
   imageSrc: "/apps/slack.svg",
   logo: "/apps/slack.svg",
-  publisher: "Cal.com",
+  publisher: "app.abg.garden",
   rating: 5,
   reviews: 69,
   slug: "slack",
@@ -19,7 +19,7 @@ export const metadata = {
   url: "https://slack.com/",
   variant: "conferencing",
   verified: true,
-  email: "help@cal.com",
+  email: "help@abg.garden",
 } as App;
 
 export default metadata;

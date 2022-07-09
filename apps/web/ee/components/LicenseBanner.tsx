@@ -12,12 +12,12 @@ export default function LicenseBanner() {
   const { t } = useLocale();
   /*
     Set this value to 'agree' to accept our license:
-    LICENSE: https://github.com/calcom/cal.com/blob/main/LICENSE
+    LICENSE: https://github.com/alwaysbegrowing/calendar/blob/main/LICENSE
 
     Summary of terms:
     - The codebase has to stay open source, whether it was modified or not
     - You can not repackage or sell the codebase
-    - Acquire a commercial license to remove these terms by visiting: cal.com/sales
+    - Acquire a commercial license to remove these terms by visiting: abg.garden/sales
     NEXT_PUBLIC_LICENSE_CONSENT=''
   */
   if (process.env.NEXT_PUBLIC_LICENSE_CONSENT === "agree" || process.env.NEXT_PUBLIC_IS_E2E) {
@@ -90,8 +90,8 @@ export default function LicenseBanner() {
           <li>{t("cannot_repackage_codebase")}</li>
           <li>
             {t("acquire_license")}:{" "}
-            <a className="text-blue-500 underline" href="https://cal.com/sales">
-              cal.com/sales
+            <a className="text-blue-500 underline" href="https://abg.garden/sales">
+              abg.garden/sales
             </a>
           </li>
         </ul>

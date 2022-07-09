@@ -11,14 +11,14 @@ export const metadata = {
   variant: "calendar",
   category: "calendar",
   logo: "/api/app-store/office365calendar/icon.svg",
-  publisher: "Cal.com",
+  publisher: "app.abg.garden",
   rating: 5,
   reviews: 69,
   slug: "office365-calendar",
   trending: false,
-  url: "https://cal.com/",
+  url: "https://abg.garden/",
   verified: true,
-  email: "help@cal.com",
+  email: "help@abg.garden",
 } as App;
 
 export default metadata;

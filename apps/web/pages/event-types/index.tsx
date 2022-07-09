@@ -549,7 +549,7 @@ function EventTypesPage(props: AvailabilityPageProps) {
   return (
     <div>
       <Head>
-        <title>Home | Cal.com</title>
+        <title>Home | app.abg.garden</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Shell
@@ -656,7 +656,7 @@ async function getUserPageProps(context: GetServerSidePropsContext) {
   const eventTypeIds = user.eventTypes.map((e) => e.id);
   const eventType = await prisma.eventType.findUnique({
     where: {
-      id: eventTypeIds[0],
+      id: eventTypeIds[1],
     },
     select: {
       title: true,

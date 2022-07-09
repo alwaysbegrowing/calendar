@@ -6,11 +6,11 @@
   "type": "around_video",
   "imageSrc": "/api/app-store/around/icon.svg",
   "logo": "/api/app-store/around/icon.svg",
-  "url": "https://cal.com/apps/around",
+  "url": "https://abg.garden/apps/around",
   "variant": "conferencing",
   "categories": ["video"],
-  "publisher": "Cal.com",
-  "email": "help@cal.com",
+  "publisher": "app.abg.garden",
+  "email": "help@abg.garden",
   "description": "Discover radically unique video calls designed to help hybrid-remote teams create, collaborate and celebrate together.",
   "__createdUsingCli": true
 }

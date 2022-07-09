@@ -173,7 +173,7 @@ const Layout = ({
   return (
     <>
       <HeadSeo
-        title={pageTitle ?? "Cal.com"}
+        title={pageTitle ?? "app.abg.garden"}
         description={props.subtitle ? props.subtitle?.toString() : ""}
         nextSeoProps={{
           nofollow: true,
@@ -260,8 +260,8 @@ const Layout = ({
                   </span>
                 </div>
                 <small style={{ fontSize: "0.5rem" }} className="mx-3 mt-1 mb-2 hidden opacity-50 lg:block">
-                  &copy; {new Date().getFullYear()} Cal.com, Inc. v.{pkg.version + "-"}
-                  {process.env.NEXT_PUBLIC_WEBSITE_URL === "https://cal.com" ? "h" : "sh"}
+                  &copy; {new Date().getFullYear()} app.abg.garden, Inc. v.{pkg.version + "-"}
+                  {process.env.NEXT_PUBLIC_WEBSITE_URL === "https://abg.garden" ? "h" : "sh"}
                   <span className="lowercase" data-testid={`plan-${plan?.toLowerCase()}`}>
                     -{plan}
                   </span>
@@ -501,8 +501,8 @@ function UserDropdown({ small }: { small?: boolean }) {
                 </span>
                 <span className="block truncate font-normal text-neutral-500">
                   {user?.username
-                    ? process.env.NEXT_PUBLIC_WEBSITE_URL === "https://cal.com"
-                      ? `cal.com/${user.username}`
+                    ? process.env.NEXT_PUBLIC_WEBSITE_URL === "https://abg.garden"
+                      ? `abg.garden/${user.username}`
                       : `/${user.username}`
                     : "No public page"}
                 </span>

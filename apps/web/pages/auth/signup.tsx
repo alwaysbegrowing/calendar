@@ -60,7 +60,7 @@ export default function Signup({ email }: Props) {
       .then(handleErrors)
       .then(
         async () =>
-          await signIn("Cal.com", {
+          await signIn("app.abg.garden", {
             callbackUrl: (`${NEXT_PUBLIC_BASE_URL}/${router.query.callbackUrl}` || "") as string,
           })
       )
@@ -130,7 +130,7 @@ export default function Signup({ email }: Props) {
                   color="secondary"
                   className="w-5/12 justify-center"
                   onClick={() =>
-                    signIn("Cal.com", {
+                    signIn("app.abg.garden", {
                       callbackUrl: (`${NEXT_PUBLIC_BASE_URL}/${router.query.callbackUrl}` || "") as string,
                     })
                   }>

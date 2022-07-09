@@ -18,7 +18,7 @@ export const seoConfig: {
   defaultNextSeo: DefaultSeoProps;
 } = {
   headSeo: {
-    siteName: "Cal.com",
+    siteName: "app.abg.garden",
   },
   defaultNextSeo: {
     twitter: {

@@ -5,10 +5,10 @@ import {useWindowSize} from "../lib/useWindowSize";
 
 
 <Bleed full>
-  <Head><title>Public API | Cal.com</title></Head>
+  <Head><title>Public API | app.abg.garden</title></Head>
   <IframeResizer
     autoResize
-    src={process.env.NEXT_PUBLIC_SWAGGER_DOCS_URL || "https://developer.cal.com"}
+    src={process.env.NEXT_PUBLIC_SWAGGER_DOCS_URL || "https://developer.abg.garden"}
     frameBorder="0"
     style={{
       width: useWindowSize().width > 768 ? "calc(100vw - 16rem)": "100vw",

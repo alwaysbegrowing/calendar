@@ -1,4 +1,4 @@
-require("dotenv").config({ path: "../../.env" });
+require("dotenv").config({ path: "../../.env.local" });
 
 const withTM = require("next-transpile-modules")([
   "@calcom/app-store",
@@ -118,7 +118,7 @@ const nextConfig = {
       },
     ];
 
-    if (process.env.NEXT_PUBLIC_WEBAPP_URL === "https://app.cal.com") {
+    if (process.env.NEXT_PUBLIC_WEBAPP_URL === "https://app.abg.garden") {
       redirects.push(
         {
           source: "/apps/dailyvideo",

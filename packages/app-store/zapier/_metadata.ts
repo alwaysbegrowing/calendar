@@ -9,17 +9,17 @@ export const metadata = {
   category: "other",
   imageSrc: "/api/app-store/zapier/icon.svg",
   logo: "/api/app-store/zapier/icon.svg",
-  publisher: "Cal.com",
+  publisher: "app.abg.garden",
   rating: 0,
   reviews: 0,
   slug: "zapier",
   title: "Zapier",
   trending: true,
   type: "zapier_other",
-  url: "https://cal.com/apps/zapier",
+  url: "https://abg.garden/apps/zapier",
   variant: "other",
   verified: true,
-  email: "help@cal.com",
+  email: "help@abg.garden",
 } as App;
 
 export default metadata;

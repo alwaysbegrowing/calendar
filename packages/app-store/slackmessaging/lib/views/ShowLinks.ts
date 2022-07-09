@@ -1,6 +1,6 @@
-import dayjs from "@calcom/dayjs";
 import { Blocks, Elements, Message } from "slack-block-builder";
 
+import dayjs from "@calcom/dayjs";
 import { WEBAPP_URL } from "@calcom/lib/constants";
 
 interface IEventTypes {
@@ -17,7 +17,7 @@ const ShowLinks = (eventLinks: IEventTypes[] | undefined, username: string) => {
   }
   return Message()
     .blocks(
-      Blocks.Section({ text: `${username}'s Cal.com Links` }),
+      Blocks.Section({ text: `${username}'s app.abg.garden Links` }),
       Blocks.Divider(),
       eventLinks.map((links) =>
         Blocks.Section({

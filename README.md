@@ -1,41 +1,41 @@
 <!-- PROJECT LOGO -->
 <p align="center">
-  <a href="https://github.com/calcom/cal.com">
+  <a href="https://github.com/alwaysbegrowing/calendar">
     <img src="https://user-images.githubusercontent.com/8019099/133430653-24422d2a-3c8d-4052-9ad6-0580597151ee.png" alt="Logo">
 
   </a>
 
-  <h3 align="center">Cal.com (formerly Calendso)</h3>
+  <h3 align="center">app.abg.garden (formerly Calendso)</h3>
 
   <p align="center">
     The open-source Calendly alternative.
     <br />
-    <a href="https://cal.com"><strong>Learn more »</strong></a>
+    <a href="https://abg.garden"><strong>Learn more »</strong></a>
     <br />
     <br />
-    <a href="https://cal.com/slack">Slack</a>
+    <a href="https://abg.garden/slack">Slack</a>
     ·
-    <a href="https://cal.com">Website</a>
+    <a href="https://abg.garden">Website</a>
     ·
-    <a href="https://github.com/calcom/cal.com/issues">Issues</a>
+    <a href="https://github.com/alwaysbegrowing/calendar/issues">Issues</a>
     ·
-    <a href="https://cal.com/roadmap">Roadmap</a>
+    <a href="https://abg.garden/roadmap">Roadmap</a>
   </p>
 </p>
 
 <p align="center">
-   <a href="https://cal.com/slack"><img src="https://img.shields.io/badge/Slack-calendso.slack.com-%234A154B" alt="Join Cal.com Slack"></a>
+   <a href="https://abg.garden/slack"><img src="https://img.shields.io/badge/Slack-calendso.slack.com-%234A154B" alt="Join app.abg.garden Slack"></a>
    <a href="https://www.producthunt.com/posts/calendso"><img src="https://img.shields.io/badge/Product%20Hunt-%231%20Product%20of%20the%20Month-%23DA552E" alt="Product Hunt"></a>
-   <a href="https://github.com/calcom/cal.com/stargazers"><img src="https://img.shields.io/github/stars/calcom/cal.com" alt="Github Stars"></a>
+   <a href="https://github.com/alwaysbegrowing/calendar/stargazers"><img src="https://img.shields.io/github/stars/alwaysbegrowing/calendar" alt="Github Stars"></a>
    <a href="https://news.ycombinator.com/item?id=26817795"><img src="https://img.shields.io/badge/Hacker%20News-311-%23FF6600" alt="Hacker News"></a>
-   <a href="https://github.com/calcom/cal.com/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-AGPLv3-purple" alt="License"></a>
-   <a href="https://github.com/calcom/cal.com/pulse"><img src="https://img.shields.io/github/commit-activity/m/calcom/cal.com" alt="Commits-per-month"></a>
-   <a href="https://cal.com/pricing"><img src="https://img.shields.io/badge/Pricing-%2412%2Fmonth-brightgreen" alt="Pricing"></a>
-   <a href="https://jitsu.com?utm_source=github/calcom/cal.com"><img src="https://img.shields.io/badge/Metrics_tracked_by-JITSU-AA00FF?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACKSURBVHgBrZDRCYAwDEQv6gCOoKO4hOCXI9QVnEZwiY5iF5GaVClaBNtioCSUvCR3tMJaxIfZgW4AGUoEPVwgPZoS0Dmgg3NBVDFNbMIsmYCak3J1jDk9iCQvsKJvkzr71N81Gj6vDT/LU2P6RhY63jcafk3YJEbgeZpiFyc/5HJKv8Ef273NSfABGbQfUZhnOSAAAAAASUVORK5CYII=" alt="Jitsu Tracked"></a>
+   <a href="https://github.com/alwaysbegrowing/calendar/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-AGPLv3-purple" alt="License"></a>
+   <a href="https://github.com/alwaysbegrowing/calendar/pulse"><img src="https://img.shields.io/github/commit-activity/m/alwaysbegrowing/calendar" alt="Commits-per-month"></a>
+   <a href="https://abg.garden/pricing"><img src="https://img.shields.io/badge/Pricing-%2412%2Fmonth-brightgreen" alt="Pricing"></a>
+   <a href="https://jitsu.com?utm_source=github/alwaysbegrowing/calendar"><img src="https://img.shields.io/badge/Metrics_tracked_by-JITSU-AA00FF?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAOCAYAAAAfSC3RAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAACKSURBVHgBrZDRCYAwDEQv6gCOoKO4hOCXI9QVnEZwiY5iF5GaVClaBNtioCSUvCR3tMJaxIfZgW4AGUoEPVwgPZoS0Dmgg3NBVDFNbMIsmYCak3J1jDk9iCQvsKJvkzr71N81Gj6vDT/LU2P6RhY63jcafk3YJEbgeZpiFyc/5HJKv8Ef273NSfABGbQfUZhnOSAAAAAASUVORK5CYII=" alt="Jitsu Tracked"></a>
    <img src="https://api.checklyhq.com/v1/badges/checks/5e048048-1b51-47ba-9209-60607507622e?responseTime=true" alt="Checkly Availability" />
    <a href="https://hub.docker.com/r/calendso/calendso"><img src="https://img.shields.io/docker/pulls/calendso/calendso"></a>
-   <a href="https://twitter.com/calcom"><img src="https://img.shields.io/twitter/follow/calcom?style=flat"></a>
-   <a href="https://twitch.tv/calcomtv"><img src="https://img.shields.io/twitch/status/calcomtv?style=flat"></a>
+   <a href="https://twitter.com/alwaysbegrowing"><img src="https://img.shields.io/twitter/follow/alwaysbegrowing?style=flat"></a>
+   <a href="https://twitch.tv/alwaysbegrowingtv"><img src="https://img.shields.io/twitch/status/alwaysbegrowingtv?style=flat"></a>
    <a href="https://calendso.slack.com/archives/C02BY67GMMW"><img src="https://img.shields.io/badge/translations-contribute-brightgreen" /></a>
    <a href="https://www.contributor-covenant.org/version/1/4/code-of-conduct/ "><img src="https://img.shields.io/badge/Contributor%20Covenant-1.4-purple" /></a>
 </p>
@@ -53,13 +53,13 @@ of your own data, workflow and appearance.
 
 Calendly and other scheduling tools are awesome. It made our lives massively easier. We're using it for business meetings, seminars, yoga classes and even calls with our families. However, most tools are very limited in terms of control and customisations.
 
-That's where Cal.com comes in. Self-hosted or hosted by us. White-label by design. API-driven and ready to be deployed on your own domain. Full control of your events and data.
+That's where app.abg.garden comes in. Self-hosted or hosted by us. White-label by design. API-driven and ready to be deployed on your own domain. Full control of your events and data.
 
 ## Product of the Month: April
 
 #### Support us on [Product Hunt](https://www.producthunt.com/posts/calendso?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-calendso)
 
-<a href="https://www.producthunt.com/posts/calendso?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-calendso" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=291910&theme=light&period=monthly" alt="Cal.com - The open source Calendly alternative | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a> <a href="https://www.producthunt.com/posts/calendso?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-calendso" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=291910&theme=light" alt="Cal.com - The open source Calendly alternative | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a> <a href="https://www.producthunt.com/stories/how-this-open-source-calendly-alternative-rocketed-to-product-of-the-day" target="_blank"><img src="https://cal.com/maker-grant.svg" alt="Cal.com - The open source Calendly alternative | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
+<a href="https://www.producthunt.com/posts/calendso?utm_source=badge-top-post-badge&utm_medium=badge&utm_souce=badge-calendso" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/top-post-badge.svg?post_id=291910&theme=light&period=monthly" alt="app.abg.garden - The open source Calendly alternative | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a> <a href="https://www.producthunt.com/posts/calendso?utm_source=badge-featured&utm_medium=badge&utm_souce=badge-calendso" target="_blank"><img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=291910&theme=light" alt="app.abg.garden - The open source Calendly alternative | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a> <a href="https://www.producthunt.com/stories/how-this-open-source-calendly-alternative-rocketed-to-product-of-the-day" target="_blank"><img src="https://abg.garden/maker-grant.svg" alt="app.abg.garden - The open source Calendly alternative | Product Hunt" style="width: 250px; height: 54px;" width="250" height="54" /></a>
 
 ### Built With
 
@@ -94,16 +94,16 @@ Here is what you need to be able to run Cal.
 
 ### Setup
 
-1. Clone the repo into a public GitHub repository (or fork https://github.com/calcom/cal.com/fork). If you plan to distribute the code, keep the source code public to comply with [AGPLv3](https://github.com/calcom/cal.com/blob/main/LICENSE). To clone in a private repository, [acquire a commercial license](https://cal.com/sales))
+1. Clone the repo into a public GitHub repository (or fork https://github.com/alwaysbegrowing/calendar/fork). If you plan to distribute the code, keep the source code public to comply with [AGPLv3](https://github.com/alwaysbegrowing/calendar/blob/main/LICENSE). To clone in a private repository, [acquire a commercial license](https://abg.garden/sales))
 
    ```sh
-   git clone https://github.com/calcom/cal.com.git
+   git clone https://github.com/alwaysbegrowing/calendar.git
    ```
 
 1. Go to the project folder
 
    ```sh
-   cd cal.com
+   cd abg.garden
    ```
 
 1. Install packages with yarn
@@ -159,7 +159,7 @@ echo 'NEXT_PUBLIC_DEBUG=1' >> .env
    6. Once you completed the above steps, click on your newly created `Heroku Postgres` and go to its `Settings`.
       ![image](https://user-images.githubusercontent.com/16905768/115323367-e92ea980-a17f-11eb-9ff4-dec95f2ec349.png)
 
-   7. In `Settings`, copy your URI to your Cal.com .env file and replace the `postgresql://<user>:<pass>@<db-host>:<db-port>` with it.
+   7. In `Settings`, copy your URI to your app.abg.garden .env file and replace the `postgresql://<user>:<pass>@<db-host>:<db-port>` with it.
       ![image](https://user-images.githubusercontent.com/16905768/115323556-4591c900-a180-11eb-9808-2f55d2aa3995.png)
       ![image](https://user-images.githubusercontent.com/16905768/115323697-7a9e1b80-a180-11eb-9f08-a742b1037f90.png)
 
@@ -260,15 +260,15 @@ yarn workspace @calcom/web playwright-report
 
 ### Docker
 
-The Docker configuration for Cal is an effort powered by people within the community. Cal.com, Inc. does not provide official support for Docker, but we will accept fixes and documentation. Use at your own risk.
+The Docker configuration for Cal is an effort powered by people within the community. app.abg.garden, Inc. does not provide official support for Docker, but we will accept fixes and documentation. Use at your own risk.
 
-If you want to contribute to the Docker repository, [reply here](https://github.com/calcom/docker/discussions/32).
+If you want to contribute to the Docker repository, [reply here](https://github.com/alwaysbegrowing/docker/discussions/32).
 
-The Docker configuration can be found [in our docker repository](https://github.com/calcom/docker).
+The Docker configuration can be found [in our docker repository](https://github.com/alwaysbegrowing/docker).
 
 ### Heroku
 
-<a href="https://heroku.com/deploy?template=https://github.com/calcom/cal.com">
+<a href="https://heroku.com/deploy?template=https://github.com/alwaysbegrowing/calendar">
   <img width="185px" height="auto" src="https://www.herokucdn.com/deploy/button.svg" alt="Deploy">
 </a>
 
@@ -281,11 +281,11 @@ You can deploy Cal on [Railway](https://railway.app/) using the button above. Th
 <!-- ROADMAP -->
 
 ## Roadmap
-  
-  <a href="https://cal.com/roadmap"><img src="https://user-images.githubusercontent.com/8019099/176388295-25081ca4-207e-4468-8079-37b195fa8e59.png" alt="Cal.com Roadmap" /></a>
+
+  <a href="https://abg.garden/roadmap"><img src="https://user-images.githubusercontent.com/8019099/176388295-25081ca4-207e-4468-8079-37b195fa8e59.png" alt="app.abg.garden Roadmap" /></a>
 
 
-See the [roadmap project](https://cal.com/roadmap) for a list of proposed features (and known issues). You can change the view to see planned tagged releases.
+See the [roadmap project](https://abg.garden/roadmap) for a list of proposed features (and known issues). You can change the view to see planned tagged releases.
 
 <!-- CONTRIBUTING -->
 
@@ -295,7 +295,7 @@ Please see our [contributing guide](/CONTRIBUTING.md).
 
 ### Good First Issues
 
-We have a list of [good first issues](https://github.com/calcom/cal.com/labels/✅%20good%20first%20issue) that contain bugs which have a relatively limited scope. This is a great place to get started, gain experience, and get familiar with our contribution process.
+We have a list of [good first issues](https://github.com/alwaysbegrowing/calendar/labels/✅%20good%20first%20issue) that contain bugs which have a relatively limited scope. This is a great place to get started, gain experience, and get familiar with our contribution process.
 
 ## Integrations
 
@@ -309,7 +309,7 @@ We have a list of [good first issues](https://github.com/calcom/cal.com/labels/�
 6. In the third page (Test Users), add the Google account(s) you'll using. Make sure the details are correct on the last page of the wizard and your consent screen will be configured.
 7. Now select [Credentials](https://console.cloud.google.com/apis/credentials) from the side pane and then select Create Credentials. Select the OAuth Client ID option.
 8. Select Web Application as the Application Type.
-9. Under Authorized redirect URI's, select Add URI and then add the URI `<Cal.com URL>/api/integrations/googlecalendar/callback` replacing Cal.com URL with the URI at which your application runs.
+9. Under Authorized redirect URI's, select Add URI and then add the URI `<app.abg.garden URL>/api/integrations/googlecalendar/callback` replacing app.abg.garden URL with the URI at which your application runs.
 10. The key will be created and you will be redirected back to the Credentials page. Select the newly generated client ID under OAuth 2.0 Client IDs.
 11. Select Download JSON. Copy the contents of this file and paste the entire JSON string in the .env file as the value for GOOGLE_API_CREDENTIALS key.
 
@@ -318,7 +318,7 @@ We have a list of [good first issues](https://github.com/calcom/cal.com/labels/�
 1. Open [Azure App Registration](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) and select New registration
 2. Name your application
 3. Set **Who can use this application or access this API?** to **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**
-4. Set the **Web** redirect URI to `<Cal.com URL>/api/integrations/office365calendar/callback` replacing Cal.com URL with the URI at which your application runs.
+4. Set the **Web** redirect URI to `<app.abg.garden URL>/api/integrations/office365calendar/callback` replacing app.abg.garden URL with the URI at which your application runs.
 5. Use **Application (client) ID** as the **MS_GRAPH_CLIENT_ID** attribute value in .env
 6. Click **Certificates & secrets** create a new client secret and use the value as the **MS_GRAPH_CLIENT_SECRET** attribute
 
@@ -330,13 +330,13 @@ Copy and paste the app manifest below into the setting on your slack app. Be sur
 
 <details>
   <summary>App Manifest</summary>
-  
+
  ```yaml
  display_information:
-  name: Cal.com Slack
+  name: app.abg.garden Slack
 features:
   bot_user:
-    display_name: Cal.com Slack
+    display_name: app.abg.garden Slack
     always_online: false
   slash_commands:
     - command: /create-event
@@ -354,7 +354,7 @@ oauth_config:
     bot:
       - chat:write
       - commands
-      - chat:write.public 
+      - chat:write.public
 settings:
   interactivity:
     is_enabled: true
@@ -383,11 +383,11 @@ Next make sure you have your app running `yarn dx`. Then in the slack chat type 
 6. De-select the option to publish the app on the Zoom App Marketplace.
 7. Click "Create".
 8. Now copy the Client ID and Client Secret to your .env file into the `ZOOM_CLIENT_ID` and `ZOOM_CLIENT_SECRET` fields.
-9. Set the Redirect URL for OAuth `<Cal.com URL>/api/integrations/zoomvideo/callback` replacing Cal.com URL with the URI at which your application runs.
+9. Set the Redirect URL for OAuth `<app.abg.garden URL>/api/integrations/zoomvideo/callback` replacing app.abg.garden URL with the URI at which your application runs.
 10. Also add the redirect URL given above as a allow list URL and enable "Subdomain check". Make sure, it says "saved" below the form.
 11. You don't need to provide basic information about your app. Instead click at "Scopes" and then at "+ Add Scopes". On the left, click the category "Meeting" and check the scope `meeting:write`.
 12. Click "Done".
-13. You're good to go. Now you can easily add your Zoom integration in the Cal.com settings.
+13. You're good to go. Now you can easily add your Zoom integration in the app.abg.garden settings.
 
 ### Obtaining Daily API Credentials
 
@@ -405,10 +405,10 @@ Next make sure you have your app running `yarn dx`. Then in the slack chat type 
 4. Fill in any information you want in the "App info" tab
 5. Go to tab "Auth"
 6. Now copy the Client ID and Client Secret to your .env file into the `HUBSPOT_CLIENT_ID` and `HUBSPOT_CLIENT_SECRET` fields.
-7. Set the Redirect URL for OAuth `<Cal.com URL>/api/integrations/hubspotothercalendar/callback` replacing Cal.com URL with the URI at which your application runs.
+7. Set the Redirect URL for OAuth `<app.abg.garden URL>/api/integrations/hubspotothercalendar/callback` replacing app.abg.garden URL with the URI at which your application runs.
 8. In the "Scopes" section at the bottom of the page, make sure you select "Read" and "Write" for scope called `crm.objects.contacts`
 9. Click the "Save" button at the bottom footer.
-10. You're good to go. Now you can see any booking in Cal.com created as a meeting in HubSpot for your contacts.
+10. You're good to go. Now you can see any booking in app.abg.garden created as a meeting in HubSpot for your contacts.
 
 ### Obtaining Vital API Keys
 
@@ -431,9 +431,9 @@ Distributed under the AGPLv3 License. See `LICENSE` for more information.
 
 ## Acknowledgements
 
-Special thanks to these amazing projects which help power Cal.com:
+Special thanks to these amazing projects which help power app.abg.garden:
 
-[<img src="https://cal.com/powered-by-vercel.svg">](https://vercel.com/?utm_source=calend-so&utm_campaign=oss)
+[<img src="https://abg.garden/powered-by-vercel.svg">](https://vercel.com/?utm_source=calend-so&utm_campaign=oss)
 
 - [Vercel](https://vercel.com/?utm_source=calend-so&utm_campaign=oss)
 - [Next.js](https://nextjs.org/)
@@ -441,6 +441,6 @@ Special thanks to these amazing projects which help power Cal.com:
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Prisma](https://prisma.io/)
 
-<a href="https://jitsu.com/?utm_source=cal.com-gihub"><img height="40px" src="https://jitsu.com/img/powered-by-jitsu.png?gh=true" alt="Jitsu.com"></a>
+<a href="https://jitsu.com/?utm_source=abg.garden-gihub"><img height="40px" src="https://jitsu.com/img/powered-by-jitsu.png?gh=true" alt="Jitsu.com"></a>
 
-Cal.com is an [open startup](https://cal.com/open) and [Jitsu](https://github.com/jitsucom/jitsu) (an open-source Segment alternative) helps us to track most of the usage metrics.
+app.abg.garden is an [open startup](https://abg.garden/open) and [Jitsu](https://github.com/jitsucom/jitsu) (an open-source Segment alternative) helps us to track most of the usage metrics.

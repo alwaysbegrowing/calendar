@@ -35,7 +35,7 @@ const usernameSlug = (username: string) => slugify(username) + "-" + randomStrin
 const providers: Provider[] = [
   CredentialsProvider({
     id: "credentials",
-    name: "Cal.com",
+    name: "app.abg.garden",
     type: "credentials",
     credentials: {
       email: { label: "Email Address", type: "email", placeholder: "john.doe@example.com" },
@@ -170,9 +170,9 @@ if (true) {
         });
         const emailTemplate = Handlebars.compile(emailFile);
         transporter.sendMail({
-          from: `${process.env.EMAIL_FROM}` || "Cal.com",
+          from: `${process.env.EMAIL_FROM}` || "app.abg.garden",
           to: identifier,
-          subject: "Your sign-in link for Cal.com",
+          subject: "Your sign-in link for app.abg.garden",
           html: emailTemplate({
             base_url: WEBSITE_URL,
             signin_url: url,

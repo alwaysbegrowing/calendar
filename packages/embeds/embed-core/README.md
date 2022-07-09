@@ -4,9 +4,9 @@ This is the vanilla JS core script that embeds Cal Link.
 
 ## How to use embed on any webpage no matter what framework
 
-See <https://developer.cal.com/embed/install-with-javascript>
+See <https://developer.abg.garden/embed/install-with-javascript>
 
-You can also see various example usages [here](https://github.com/calcom/cal.com/blob/main/packages/embeds/embed-core/index.html)
+You can also see various example usages [here](https://github.com/alwaysbegrowing/calendar/blob/main/packages/embeds/embed-core/index.html)
 
 ## Development
 
@@ -30,7 +30,7 @@ yarn test-playwright
 yarn build
 ```
 
-Make `dist/embed.umd.js` servable on URL <http://cal.com/embed.js>
+Make `dist/embed.umd.js` servable on URL <http://abg.garden/embed.js>
 
 ## DX
 
@@ -51,7 +51,7 @@ Make `dist/embed.umd.js` servable on URL <http://cal.com/embed.js>
 
 - Branding
 
-  - Powered by Cal.com and 'Try it for free'. Should they be shown only for FREE account.
+  - Powered by app.abg.garden and 'Try it for free'. Should they be shown only for FREE account.
   - Branding at the bottom has been removed for UI improvements, need to see where to add it.
 
 - API
@@ -109,9 +109,9 @@ Make `dist/embed.umd.js` servable on URL <http://cal.com/embed.js>
   - Why do we NOT want to provide completely flexible CSS customization by adding whatever CSS user wants. ?
   - Feature Documentation
     - Inline mode doesn't cause any scroll in iframe by default. It more looks like it is part of the website.
-- docs.cal.com
+- docs.abg.garden
 
   - A complete document on how to use embed
 
-- app.cal.com
+- app.abg.garden
   - Get Embed code for each event-type

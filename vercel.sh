@@ -2,8 +2,8 @@
 
 # This didn't work ¯\_(ツ)_/¯
 # declare -A remotes=(
-#     ["apps/website"]="github.com/calcom/website"
-#     ["apps/api"]="github.com/calcom/api"
+#     ["apps/website"]="github.com/alwaysbegrowing/website"
+#     ["apps/api"]="github.com/alwaysbegrowing/api"
 # )
 
 # github access token is necessary
@@ -31,11 +31,11 @@ for submodule in $submodules; do
     # This should be a hash table but couldn't make it work ¯\_(ツ)_/¯
     # SUBMODULE_GITHUB=$remotes[$SUBMODULE_PATH]
     if [ "$SUBMODULE_PATH" == "apps/website" ]; then
-        SUBMODULE_GITHUB=github.com/calcom/website
+        SUBMODULE_GITHUB=github.com/alwaysbegrowing/website
     fi
 
     if [ "$SUBMODULE_PATH" == "apps/api" ]; then
-        SUBMODULE_GITHUB=github.com/calcom/api
+        SUBMODULE_GITHUB=github.com/alwaysbegrowing/api
     fi
 
     # set up an empty temporary work directory

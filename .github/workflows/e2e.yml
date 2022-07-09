@@ -41,7 +41,7 @@ jobs:
       SAML_ADMINS: pro@example.com
       NEXTAUTH_URL: http://localhost:3000/api/auth
       NEXT_PUBLIC_IS_E2E: 1
-      # EMAIL_FROM: e2e@cal.com
+      # EMAIL_FROM: e2e@abg.garden
       # EMAIL_SERVER_HOST: ${{ secrets.CI_EMAIL_SERVER_HOST }}
       # EMAIL_SERVER_PORT: ${{ secrets.CI_EMAIL_SERVER_PORT }}
       # EMAIL_SERVER_USER: ${{ secrets.CI_EMAIL_SERVER_USER }}

@@ -13,14 +13,14 @@ export const metadata = {
   category: "calendar",
   label: "Exchange Calendar",
   logo: "/api/app-store/exchange2013calendar/icon.svg",
-  publisher: "Cal.com",
+  publisher: "app.abg.garden",
   rating: 5,
   reviews: 69,
   slug: "exchange2013-calendar",
   trending: false,
-  url: "https://cal.com/",
+  url: "https://abg.garden/",
   verified: true,
-  email: "help@cal.com",
+  email: "help@abg.garden",
 } as App;
 
 export default metadata;

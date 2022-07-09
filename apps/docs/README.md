@@ -1,14 +1,14 @@
 <!-- PROJECT LOGO -->
 <div align="right">
-  <a href="https://github.com/calcom/cal.com">
+  <a href="https://github.com/alwaysbegrowing/calendar">
     <img src="https://user-images.githubusercontent.com/8019099/133430653-24422d2a-3c8d-4052-9ad6-0580597151ee.png" alt="Logo">
   </a>
-  <a href="https://cal.com">Website</a>
+  <a href="https://abg.garden">Website</a>
   ·
-  <a href="https://github.com/calcom/cal.com/issues">Community Support</a>
+  <a href="https://github.com/alwaysbegrowing/calendar/issues">Community Support</a>
 </div>
 
-# Cal.com Documentation
+# app.abg.garden Documentation
 
 The official product, support and developer documentation, containing information and guides about using the product as well as support for self-hosted installations. This documentation site runs on [Nextra](https://nextra.vercel.app), so you may refer to their documentation should you need information on anything that isn't covered here.
 
@@ -23,7 +23,7 @@ The official product, support and developer documentation, containing informatio
 Firstly, clone the repository using Git:
 
 ```console
-git clone https://github.com/calcom/docs.git
+git clone https://github.com/alwaysbegrowing/docs.git
 ```
 
 Now, you can install the dependencies with yarn:

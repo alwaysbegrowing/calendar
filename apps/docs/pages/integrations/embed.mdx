@@ -41,7 +41,7 @@ Install the following Vanilla JS Snippet to get embed to work on any website. Af
         }
         p(cal, ar);
       };
-    })(window, "https://cal.com/embed.js", "init");
+    })(window, "https://abg.garden/embed.js", "init");
     Cal("init")
   </script>
 ```
@@ -75,7 +75,7 @@ Show the embed inline inside a container element. It would take the width and he
 <script>
   Cal("inline", {
     elementOrSelector: "Your Embed Container Selector Path", // You can also provide an element directly
-    calLink: "jane", // The link that you want to embed. It would open https://cal.com/jane in embed
+    calLink: "jane", // The link that you want to embed. It would open https://abg.garden/jane in embed
     config: {
       name: "John Doe", // Prefill Name
       email: "johndoe@gmail.com", // Prefill Email
@@ -173,7 +173,7 @@ To show the embed as a popup on clicking an element, simply add `data-cal-link` 
 ```html
 <script>
   Cal("floatingButton", {
-    // The link that you want to embed. It would open https://cal.com/jane in embed
+    // The link that you want to embed. It would open https://abg.garden/jane in embed
     calLink: "jane",
   });
 </script>
@@ -203,7 +203,7 @@ Cal("inline", { elementOrSelector, calLink });
 
 - `elementOrSelector` - Give it either a valid CSS selector or an HTMLElement instance directly
 
-- `calLink` - Cal Link that you want to embed e.g. john. Just give the username. No need to give the full URL [https://cal.com/john](). It makes it easy to configure the calendar host once and use as many links you want with just usernames
+- `calLink` - Cal Link that you want to embed e.g. john. Just give the username. No need to give the full URL [https://abg.garden/john](). It makes it easy to configure the calendar host once and use as many links you want with just usernames
 
 ### `ui`
 
@@ -229,7 +229,7 @@ Cal("preload", { calLink });
 </script>
 ```
 
-- `calLink` - Cal Link that you want to embed e.g. john. Just give the username. No need to give the full URL [https://cal.com/john]()
+- `calLink` - Cal Link that you want to embed e.g. john. Just give the username. No need to give the full URL [https://abg.garden/john]()
 
 ## Actions
 You can listen to an action that occurs in embedded cal link as follows. You can think of them as DOM events. We are avoiding the term "events" to not confuse it with Cal Events.
@@ -248,7 +248,7 @@ Cal("on", {
 ```
 
 Following are the list of supported actions.
-- 
+-
 | Action               | Description                                                                                                                        | Properties                                                                                                                                                                                                                                                                             |
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | eventTypeSelected    | When user chooses an event-type from the listing.                                                                                  | eventType:object // Event Type that has been selected"                                                                                                                                                                                                                               |

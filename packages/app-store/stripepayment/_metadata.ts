@@ -17,14 +17,14 @@ export const metadata = {
   trending: true,
   reviews: 69,
   imageSrc: "/api/app-store/stripepayment/icon.svg",
-  publisher: "Cal.com",
+  publisher: "app.abg.garden",
   title: "Stripe",
   type: "stripe_payment",
-  url: "https://cal.com/",
+  url: "https://abg.garden/",
   docsUrl: "https://stripe.com/docs",
   variant: "payment",
   verified: true,
-  email: "help@cal.com",
+  email: "help@abg.garden",
 } as App;
 
 export default metadata;
