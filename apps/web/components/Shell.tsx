@@ -126,10 +126,10 @@ const Layout = ({
   const { t } = useLocale();
   const navigation = [
     {
-      name: t("event_types_page_title"),
-      href: "/event-types",
+      name: "Home",
+      href: "/home",
       icon: LinkIcon,
-      current: router.asPath.startsWith("/event-types"),
+      current: router.asPath.startsWith("/home"),
     },
     {
       name: t("bookings"),
