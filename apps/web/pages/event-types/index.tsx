@@ -552,7 +552,6 @@ function EventTypesPage(props: AvailabilityPageProps) {
         <title>Home | Cal.com</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <UserCal {...props} />
       <Shell
         heading={t("event_types_page_title") as string}
         subtitle={t("event_types_page_subtitle") as string}
@@ -580,6 +579,8 @@ function EventTypesPage(props: AvailabilityPageProps) {
               )}
               {data.eventTypeGroups.map((group, index) => (
                 <Fragment key={group.profile.slug}>
+                  <UserCal {...props} />
+
                   {/* hide list heading when there is only one (current user) */}
                   {(data.eventTypeGroups.length !== 1 || group.teamId) && (
                     <EventTypeListHeading
