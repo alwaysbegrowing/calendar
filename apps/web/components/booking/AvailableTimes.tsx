@@ -25,6 +25,8 @@ type AvailableTimesProps = {
   seatsPerTimeSlot?: number | null;
   slots?: Slot[];
   isLoading: boolean;
+  selectedSlots: string[];
+  setSelectedSlots: (slots: string[]) => void;
 };
 
 const AvailableTimes: FC<AvailableTimesProps> = ({
@@ -37,13 +39,14 @@ const AvailableTimes: FC<AvailableTimesProps> = ({
   timeFormat,
   schedulingType,
   seatsPerTimeSlot,
+  selectedSlots,
+  setSelectedSlots,
 }) => {
   const { t, i18n } = useLocale();
   const router = useRouter();
   const { rescheduleUid } = router.query;
 
   const [brand, setBrand] = useState("#292929");
-  const [selectedSlots, setSelectedSlots] = useState<string[]>([]);
 
   useEffect(() => {
     setBrand(getComputedStyle(document.documentElement).getPropertyValue("--brand-color").trim());

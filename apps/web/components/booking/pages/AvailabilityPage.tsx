@@ -35,11 +35,13 @@ import { CAL_URL, WEBSITE_URL } from "@calcom/lib/constants";
 import { useLocale } from "@calcom/lib/hooks/useLocale";
 import { getRecurringFreq } from "@calcom/lib/recurringStrings";
 import { localStorage } from "@calcom/lib/webstorage";
+import { Button } from "@calcom/ui";
 import DatePicker from "@calcom/ui/booker/DatePicker";
 
 import { timeZone as localStorageTimeZone } from "@lib/clock";
 // import { timeZone } from "@lib/clock";
 import { useExposePlanGlobally } from "@lib/hooks/useExposePlanGlobally";
+import useSelectedTimeSlots from "@lib/hooks/useSelectedTimeSlots";
 import useTheme from "@lib/hooks/useTheme";
 import { isBrandingHidden } from "@lib/isBrandingHidden";
 import { collectPageParameters, telemetryEventTypes, useTelemetry } from "@lib/telemetry";
@@ -147,6 +149,8 @@ const SlotPicker = ({
   recurringEventCount,
   seatsPerTimeSlot,
   weekStart = 0,
+  setSelectedSlots,
+  selectedSlots,
 }: {
   eventType: Pick<EventType, "id" | "schedulingType" | "slug">;
   timeFormat: string;
@@ -220,6 +224,8 @@ const SlotPicker = ({
       {selectedDate && (
         <AvailableTimes
           isLoading={isLoading}
+          setSelectedSlots={setSelectedSlots}
+          selectedSlots={selectedSlots}
           slots={slots[selectedDate.format("YYYY-MM-DD")]}
           date={selectedDate}
           timeFormat={timeFormat}
@@ -316,6 +322,7 @@ const AvailabilityPage = ({ profile, eventType }: Props) => {
   const [timeZone, setTimeZone] = useState<string>();
   const [timeFormat, setTimeFormat] = useState(detectBrowserTimeFormat);
   const [isAvailableTimesVisible, setIsAvailableTimesVisible] = useState<boolean>();
+  const { setSelectedSlots, selectedSlots } = useSelectedTimeSlots();
 
   useEffect(() => {
     setTimeZone(localStorageTimeZone() || dayjs.tz.guess());
@@ -670,6 +677,8 @@ const AvailabilityPage = ({ profile, eventType }: Props) => {
               </div>
               {timeZone && (
                 <SlotPicker
+                  setSelectedSlots={setSelectedSlots}
+                  selectedSlots={selectedSlots}
                   weekStart={
                     typeof profile.weekStart === "string"
                       ? ([
@@ -692,7 +701,13 @@ const AvailabilityPage = ({ profile, eventType }: Props) => {
               )}
             </div>
           </div>
-          {(!eventType.users[0] || !isBrandingHidden(eventType.users[0])) && !isEmbed && <PoweredByCal />}
+
+          {selectedSlots.length > 0 && (
+            <div className="mt-5 text-right">
+              <Button className="pt-2">Confirm</Button>
+              <pre>{JSON.stringify(selectedSlots)}</pre>
+            </div>
+          )}
         </main>
       </div>
     </>
