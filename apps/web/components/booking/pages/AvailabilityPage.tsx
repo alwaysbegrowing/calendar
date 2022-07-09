@@ -158,6 +158,8 @@ const SlotPicker = ({
   seatsPerTimeSlot?: number;
   recurringEventCount?: number;
   weekStart?: 0 | 1 | 2 | 3 | 4 | 5 | 6;
+  selectedSlots: string[];
+  setSelectedSlots: (slots: string[]) => void;
 }) => {
   const [selectedDate, setSelectedDate] = useState<Dayjs>();
   const [browsingDate, setBrowsingDate] = useState<Dayjs>();
