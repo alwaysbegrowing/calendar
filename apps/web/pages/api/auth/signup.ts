@@ -1,7 +1,6 @@
 import { IdentityProvider } from "@prisma/client";
+import { MembershipRole } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
-
-import { MembershipRole } from "@calcom/prisma/client";
 
 import { hashPassword } from "@lib/auth";
 import prisma from "@lib/prisma";
