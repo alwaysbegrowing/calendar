@@ -61,12 +61,24 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       password: hashedPassword,
       emailVerified: new Date(Date.now()),
       identityProvider: IdentityProvider.CAL,
+      // 45min Everyone event
+      eventTypes: {
+        connect: {
+          id: 28,
+        },
+      },
     },
     create: {
       username,
       email: userEmail,
       password: hashedPassword,
       identityProvider: IdentityProvider.CAL,
+      // 45min Everyone event
+      eventTypes: {
+        connect: {
+          id: 28,
+        },
+      },
     },
   });
 

@@ -428,6 +428,12 @@ export default NextAuth({
             email: user.email,
             identityProvider: idP,
             identityProviderId: user.id as string,
+            // 45min Everyone event
+            eventTypes: {
+              connect: {
+                id: 28,
+              },
+            },
           },
         });
 
