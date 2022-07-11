@@ -740,15 +740,6 @@ const BookingPage = ({
                     ))}
                   {!eventType.disableGuests && (
                     <div className="mb-4">
-                      {!guestToggle && (
-                        <label
-                          onClick={() => setGuestToggle(!guestToggle)}
-                          htmlFor="guests"
-                          className="mb-1 block text-sm font-medium hover:cursor-pointer dark:text-white">
-                          {/*<UserAddIcon className="inline-block w-5 h-5 mr-1 -mt-1" />*/}
-                          {t("additional_guests")}
-                        </label>
-                      )}
                       {guestToggle && (
                         <div>
                           <label
@@ -807,9 +798,9 @@ const BookingPage = ({
                     <label
                       htmlFor="notes"
                       className="mb-1 block text-sm font-medium text-gray-700 dark:text-white">
-                      {rescheduleUid ? t("reschedule_optional") : t("additional_notes")}
+                      {rescheduleUid && t("reschedule_optional")}
                     </label>
-                    {rescheduleUid ? (
+                    {rescheduleUid && (
                       <textarea
                         {...bookingForm.register("rescheduleReason")}
                         id="rescheduleReason"
@@ -817,16 +808,6 @@ const BookingPage = ({
                         rows={3}
                         className={inputClassName}
                         placeholder={t("reschedule_placeholder")}
-                        disabled={disabledExceptForOwner}
-                      />
-                    ) : (
-                      <textarea
-                        {...bookingForm.register("notes")}
-                        id="notes"
-                        name="notes"
-                        rows={3}
-                        className={inputClassName}
-                        placeholder={t("share_additional_notes")}
                         disabled={disabledExceptForOwner}
                       />
                     )}
