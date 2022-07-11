@@ -1,4 +1,13 @@
-require("dotenv").config({ path: "../../.env" });
+const fs = require("fs");
+try {
+  if (fs.existsSync("../../.env.local")) {
+    require("dotenv").config({ path: "../../.env.local" });
+  } else {
+    require("dotenv").config({ path: "../../.env" });
+  }
+} catch (e) {
+  console.error(e);
+}
 
 const withTM = require("next-transpile-modules")([
   "@calcom/app-store",
