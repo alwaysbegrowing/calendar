@@ -73,7 +73,7 @@ const AvailableTimes: FC<AvailableTimesProps> = ({
                 query: Record<string, string | number | string[] | undefined>;
               };
               const bookingUrl: BookingURL = {
-                pathname: "book",
+                pathname: window.location.href.includes("/home") ? "team/45min/book" : "book",
                 query: {
                   ...router.query,
                   date: dayjs(slot.time).format(),
