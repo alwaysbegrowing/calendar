@@ -533,12 +533,12 @@ const CTA = () => {
 
 const WithQuery = withQuery(["viewer.eventTypes"]);
 
-function EventTypesPage() {
+const EventTypesPage = () => {
   const { t } = useLocale();
   return (
     <div>
       <Head>
-        <title>Home | app.abg.garden</title>
+        <title>Event types | app.abg.garden</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Shell
@@ -592,6 +592,6 @@ function EventTypesPage() {
       </Shell>
     </div>
   );
-}
+};
 
 export default EventTypesPage;
