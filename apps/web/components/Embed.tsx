@@ -143,7 +143,7 @@ function MyComponent() {
       const cal = await getCalApi();
       ${uiInstructionCode}
     })();
-  }, []) 
+  }, [])
   return <Cal calLink="${calLink}" style={{width:"${width}",height:"${height}",overflow:"scroll"}} />;
 };`;
     },
@@ -164,7 +164,7 @@ function MyComponent() {
       Cal("floatingButton", ${floatingButtonArg});
       ${uiInstructionCode}
     })();
-  }, [])     
+  }, [])
 };`;
     },
     "element-click": ({ calLink, uiInstructionCode }: { calLink: string; uiInstructionCode: string }) => {
@@ -177,7 +177,7 @@ function MyComponent() {
       const cal = await getCalApi();
       ${uiInstructionCode}
     })();
-  }, []) 
+  }, [])
   return <button data-cal-link="${calLink}" />;
 };`;
     },
@@ -224,7 +224,7 @@ const getEmbedTypeSpecificString = ({
   if (!frameworkCodes) {
     throw new Error(`No code available for the framework:${embedFramework}`);
   }
-  let uiInstructionStringArg = undefined;
+  let uiInstructionStringArg = {} as { apiName: string; theme: Theme; brandColor: string };
   if (embedFramework === "react") {
     uiInstructionStringArg = {
       apiName: "cal",
