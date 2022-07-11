@@ -286,8 +286,7 @@ You can deploy Cal on [Railway](https://railway.app/) using the button above. Th
 
 ## Roadmap
 
-  <a href="https://abg.garden/roadmap"><img src="https://user-images.githubusercontent.com/8019099/176388295-25081ca4-207e-4468-8079-37b195fa8e59.png" alt="app.abg.garden Roadmap" /></a>
-
+<a href="https://abg.garden/roadmap"><img src="https://user-images.githubusercontent.com/8019099/176388295-25081ca4-207e-4468-8079-37b195fa8e59.png" alt="app.abg.garden Roadmap" /></a>
 
 See the [roadmap project](https://abg.garden/roadmap) for a list of proposed features (and known issues). You can change the view to see planned tagged releases.
 
@@ -335,8 +334,8 @@ Copy and paste the app manifest below into the setting on your slack app. Be sur
 <details>
   <summary>App Manifest</summary>
 
- ```yaml
- display_information:
+```yaml
+display_information:
   name: app.abg.garden Slack
 features:
   bot_user:

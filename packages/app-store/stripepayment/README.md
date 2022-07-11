@@ -4,7 +4,8 @@
     <img src="https://user-images.githubusercontent.com/8019099/133430653-24422d2a-3c8d-4052-9ad6-0580597151ee.png" alt="Logo">
   </a>
 
-  <a href="https://abg.garden/enterprise">Get Started with Enterprise</a>
+<a href="https://abg.garden/enterprise">Get Started with Enterprise</a>
+
 </div>
 
 # Enterprise Edition
