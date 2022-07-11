@@ -116,7 +116,7 @@ const AvailableTimes: FC<AvailableTimesProps> = ({
                           if (selectedSlots.includes(slot.time)) {
                             setSelectedSlots(selectedSlots.filter((s) => s !== slot.time));
                           } else {
-                            setSelectedSlots((prevState) => [...prevState, slot.time]);
+                            setSelectedSlots([...selectedSlots, slot.time]);
                           }
                         }}
                         className={classNames(
