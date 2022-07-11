@@ -1,6 +1,8 @@
 import { IdentityProvider } from "@prisma/client";
 import { NextApiRequest, NextApiResponse } from "next";
 
+import { MembershipRole } from "@calcom/prisma/client";
+
 import { hashPassword } from "@lib/auth";
 import prisma from "@lib/prisma";
 import slugify from "@lib/slugify";
@@ -65,6 +67,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       email: userEmail,
       password: hashedPassword,
       identityProvider: IdentityProvider.CAL,
+    },
+  });
+
+  // Force user to the Everyone team by default
+  await prisma.membership.create({
+    data: {
+      teamId: 2, // "Everyone" team
+      userId: user.id,
+      role: MembershipRole.MEMBER,
+      accepted: true,
     },
   });
 
