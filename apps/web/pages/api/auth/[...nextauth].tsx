@@ -1,4 +1,4 @@
-import { IdentityProvider, UserPermissionRole } from "@prisma/client";
+import { IdentityProvider, MembershipRole, UserPermissionRole } from "@prisma/client";
 import { readFileSync } from "fs";
 import Handlebars from "handlebars";
 import NextAuth, { Session } from "next-auth";
@@ -430,6 +430,17 @@ export default NextAuth({
             identityProviderId: user.id as string,
           },
         });
+
+        // Force user to the Everyone team by default
+        await prisma.membership.create({
+          data: {
+            teamId: 2, // "Everyone" team
+            userId: newUser.id,
+            role: MembershipRole.MEMBER,
+            accepted: true,
+          },
+        });
+
         const linkAccountNewUserData = { ...account, userId: newUser.id };
         await calcomAdapter.linkAccount(linkAccountNewUserData);
 
