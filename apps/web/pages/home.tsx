@@ -1,12 +1,13 @@
+import { UserPlan } from "@prisma/client";
 import { GetServerSidePropsContext } from "next";
 import Head from "next/head";
 import { JSONObject } from "superjson/dist/types";
 
 import { locationHiddenFilter, LocationObject } from "@calcom/app-store/locations";
-import { WEBAPP_URL } from "@calcom/lib/constants";
+import { getWorkingHours } from "@calcom/lib/availability";
 import { parseRecurringEvent } from "@calcom/lib/isRecurringEvent";
 
-import { getSession } from "@lib/auth";
+import getBooking, { GetBookingType } from "@lib/getBooking";
 import prisma from "@lib/prisma";
 
 import Shell from "@components/Shell";
@@ -31,131 +32,134 @@ function HomePage(props: AvailabilityPageProps) {
   );
 }
 
-async function getUserPageProps(context: GetServerSidePropsContext) {
-  const { ssgInit } = await import("@server/lib/ssg");
-  const ssg = await ssgInit(context);
-  const session = await getSession(context);
+export const getServerSideProps = async (context: GetServerSidePropsContext) => {
+  const slugParam = "everyone";
+  const typeParam = "45min";
+  const dateParam = null;
+  const rescheduleUid = null;
 
-  if (!session?.user?.id) {
-    return { redirect: { permanent: false, destination: "/settings/profile" } };
+  if (!slugParam || !typeParam) {
+    throw new Error(`File is not named [idOrSlug]/[user]`);
   }
 
-  const user = await prisma.user.findUnique({
+  const team = await prisma.team.findFirst({
     where: {
-      id: session.user.id,
+      slug: slugParam,
     },
     select: {
       id: true,
-      username: true,
-      away: true,
-      plan: true,
       name: true,
-      hideBranding: true,
-      timeZone: true,
-      theme: true,
-      weekStart: true,
-      brandColor: true,
-      darkBrandColor: true,
+      slug: true,
+      logo: true,
       eventTypes: {
-        select: { id: true },
-        // Order by position is important to ensure that the event-type that's enabled is the first in the list because for Free user only first is allowed.
-        orderBy: [
-          {
-            position: "desc",
+        where: {
+          slug: typeParam,
+        },
+        select: {
+          id: true,
+          slug: true,
+          users: {
+            select: {
+              id: true,
+              name: true,
+              avatar: true,
+              username: true,
+              timeZone: true,
+              hideBranding: true,
+              plan: true,
+              brandColor: true,
+              darkBrandColor: true,
+            },
           },
-          {
-            id: "asc",
+          title: true,
+          availability: true,
+          description: true,
+          length: true,
+          schedulingType: true,
+          periodType: true,
+          periodStartDate: true,
+          periodEndDate: true,
+          periodDays: true,
+          periodCountCalendarDays: true,
+          minimumBookingNotice: true,
+          beforeEventBuffer: true,
+          afterEventBuffer: true,
+          recurringEvent: true,
+          requiresConfirmation: true,
+          locations: true,
+          price: true,
+          currency: true,
+          timeZone: true,
+          slotInterval: true,
+          metadata: true,
+          seatsPerTimeSlot: true,
+          schedule: {
+            select: {
+              timeZone: true,
+              availability: true,
+            },
           },
-        ],
+        },
       },
     },
   });
 
-  if (!user) {
-    throw new Error("User seems logged in but cannot be found in the db");
+  if (!team || team.eventTypes.length != 1) {
+    return {
+      notFound: true,
+    };
   }
 
-  const eventTypeIds = user.eventTypes.map((e) => e.id);
-  const eventType = eventTypeIds.length
-    ? await prisma.eventType.findUnique({
-        where: {
-          id: eventTypeIds[1],
-        },
-        select: {
-          title: true,
-          slug: true,
-          recurringEvent: true,
-          length: true,
-          locations: true,
-          id: true,
-          description: true,
-          price: true,
-          currency: true,
-          requiresConfirmation: true,
-          schedulingType: true,
-          metadata: true,
-          seatsPerTimeSlot: true,
-          users: {
-            select: {
-              name: true,
-              username: true,
-              hideBranding: true,
-              brandColor: true,
-              darkBrandColor: true,
-              theme: true,
-              plan: true,
-              allowDynamicBooking: true,
-              timeZone: true,
-            },
-          },
-        },
-      })
-    : null;
+  const [eventType] = team.eventTypes;
 
-  const locations = eventType?.locations ? (eventType.locations as LocationObject[]) : [];
+  const timeZone = eventType.schedule?.timeZone || eventType.timeZone || undefined;
 
-  const eventTypeObject =
-    eventType &&
-    Object.assign({}, eventType, {
-      metadata: (eventType.metadata || {}) as JSONObject,
-      recurringEvent: parseRecurringEvent(eventType.recurringEvent),
-      locations: locationHiddenFilter(locations),
-      users: eventType.users.map((user) => ({
-        name: user.name,
-        username: user.username,
-        hideBranding: user.hideBranding,
-        plan: user.plan,
-        timeZone: user.timeZone,
-      })),
-    });
+  const workingHours = getWorkingHours(
+    {
+      timeZone,
+    },
+    eventType.schedule?.availability || eventType.availability
+  );
 
-  const profile = eventType?.users[0] || user;
+  eventType.schedule = null;
+
+  const locations = eventType.locations ? (eventType.locations as LocationObject[]) : [];
+
+  const eventTypeObject = Object.assign({}, eventType, {
+    metadata: (eventType.metadata || {}) as JSONObject,
+    periodStartDate: eventType.periodStartDate?.toString() ?? null,
+    periodEndDate: eventType.periodEndDate?.toString() ?? null,
+    recurringEvent: parseRecurringEvent(eventType.recurringEvent),
+    locations: locationHiddenFilter(locations),
+  });
+
+  eventTypeObject.availability = [];
+
+  let booking: GetBookingType | null = null;
+  if (rescheduleUid) {
+    booking = await getBooking(prisma, rescheduleUid);
+  }
 
   return {
     props: {
-      eventType: eventTypeObject,
+      // Team is always pro
+      plan: "PRO" as UserPlan,
       profile: {
-        theme: user.theme,
-        name: user.name,
-        username: user.username,
-        hideBranding: user.hideBranding,
-        plan: user.plan,
-        timeZone: user.timeZone,
-        weekStart: user.weekStart,
-        brandColor: user.brandColor,
-        darkBrandColor: user.darkBrandColor,
-        slug: `${profile.username}/${eventType?.slug}`,
-        image: `${WEBAPP_URL}/${profile.username}/avatar.png`,
+        name: team.name || team.slug,
+        slug: team.slug,
+        image: team.logo,
+        theme: null as string | null,
+        weekStart: "Sunday",
+        brandColor: "" /* TODO: Add a way to set a brand color for Teams */,
+        darkBrandColor: "" /* TODO: Add a way to set a brand color for Teams */,
       },
-      away: user?.away,
-      isDynamic: false,
-      trpcState: ssg.dehydrate(),
+      date: dateParam,
+      eventType: eventTypeObject,
+      workingHours,
+      previousPage: context.req.headers.referer ?? null,
+      booking,
     },
   };
-}
-
-export const getServerSideProps = async (context: GetServerSidePropsContext) => {
-  return await getUserPageProps(context);
 };
 
 export default HomePage;
