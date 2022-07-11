@@ -219,7 +219,7 @@ export default function Onboarding(props: inferSSRProps<typeof getServerSideProp
     });
 
     setSubmitting(false);
-    router.push("/event-types");
+    router.push("/home");
   };
 
   const schema = z.object({
@@ -652,7 +652,7 @@ export async function getServerSideProps(context: NextPageContext) {
     return {
       redirect: {
         permanent: false,
-        destination: "/event-types",
+        destination: "/home",
       },
     };
   }
