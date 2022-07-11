@@ -69,7 +69,7 @@ export default function CreateEventTypeButton(props: Props) {
     const title: string =
       typeof router.query.title === "string" && router.query.title ? router.query.title : "";
     const length: number =
-      typeof router.query.length === "string" && router.query.length ? parseInt(router.query.length) : 15;
+      typeof router.query.length === "string" && router.query.length ? parseInt(router.query.length) : 45;
     const description: string =
       typeof router.query.description === "string" && router.query.description
         ? router.query.description
@@ -157,20 +157,22 @@ export default function CreateEventTypeButton(props: Props) {
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>{t("new_event_subtitle")}</DropdownMenuLabel>
             <DropdownMenuSeparator className="h-px bg-gray-200" />
-            {props.options.map((option) => (
-              <DropdownMenuItem
-                key={option.slug}
-                className="cursor-pointer px-3 py-2 hover:bg-neutral-100 focus:outline-none"
-                onSelect={() => openModal(option)}>
-                <Avatar
-                  alt={option.name || ""}
-                  imageSrc={option.image}
-                  size={6}
-                  className="inline ltr:mr-2 rtl:ml-2"
-                />
-                {option.name ? option.name : option.slug}
-              </DropdownMenuItem>
-            ))}
+            {props.options
+              .filter((option) => !option.readOnly)
+              .map((option) => (
+                <DropdownMenuItem
+                  key={option.slug}
+                  className="cursor-pointer px-3 py-2 hover:bg-neutral-100 focus:outline-none"
+                  onSelect={() => openModal(option)}>
+                  <Avatar
+                    alt={option.name || ""}
+                    imageSrc={option.image}
+                    size={6}
+                    className="inline ltr:mr-2 rtl:ml-2"
+                  />
+                  {option.name ? option.name : option.slug}
+                </DropdownMenuItem>
+              ))}
           </DropdownMenuContent>
         </Dropdown>
       )}
@@ -232,7 +234,7 @@ export default function CreateEventTypeButton(props: Props) {
                 type="number"
                 required
                 min="10"
-                placeholder="15"
+                placeholder="45"
                 label={t("length")}
                 className="pr-20"
                 {...register("length", { valueAsNumber: true })}
