@@ -706,7 +706,9 @@ const AvailabilityPage = ({ profile, eventType }: Props) => {
 
           {selectedSlots.length > 0 && (
             <div className="mt-5 text-right">
-              <Button className="pt-2">Confirm</Button>
+              <Button className="pt-2">
+                Confirm {selectedSlots.length} booking{selectedSlots.length > 1 ? "s" : ""}
+              </Button>
               <pre>{JSON.stringify(selectedSlots)}</pre>
             </div>
           )}
