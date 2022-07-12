@@ -36,7 +36,7 @@ export const test = base.extend<Fixtures>({
               callback: (e: any) => {
                 //@ts-ignore
                 const store = window.eventsFiredStoreForPlaywright;
-                let eventStore = (store[`${e.detail.type}-${e.detail.namespace}`] =
+                const eventStore = (store[`${e.detail.type}-${e.detail.namespace}`] =
                   store[`${e.detail.type}-${e.detail.namespace}`] || []);
                 eventStore.push(e.detail);
               },
