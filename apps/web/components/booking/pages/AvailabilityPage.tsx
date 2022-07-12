@@ -19,6 +19,7 @@ import { TFunction } from "next-i18next";
 import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
 import { FormattedNumber, IntlProvider } from "react-intl";
+import { useMutation } from "react-query";
 import { z } from "zod";
 
 import { AppStoreLocationType, LocationObject, LocationType } from "@calcom/app-store/locations";
@@ -42,6 +43,7 @@ import { timeZone as localStorageTimeZone } from "@lib/clock";
 import { useExposePlanGlobally } from "@lib/hooks/useExposePlanGlobally";
 import useSelectedTimeSlots from "@lib/hooks/useSelectedTimeSlots";
 import useTheme from "@lib/hooks/useTheme";
+import createBooking from "@lib/mutations/bookings/create-booking";
 import { collectPageParameters, telemetryEventTypes, useTelemetry } from "@lib/telemetry";
 import { detectBrowserTimeFormat } from "@lib/timeFormat";
 import { trpc } from "@lib/trpc";
@@ -322,6 +324,7 @@ const AvailabilityPage = ({ profile, eventType }: Props) => {
   const [timeFormat, setTimeFormat] = useState(detectBrowserTimeFormat);
   const [isAvailableTimesVisible, setIsAvailableTimesVisible] = useState<boolean>();
   const { setSelectedSlots, selectedSlots } = useSelectedTimeSlots();
+  const mutation = useMutation(createBooking);
 
   useEffect(() => {
     setTimeZone(localStorageTimeZone() || dayjs.tz.guess());
@@ -342,6 +345,10 @@ const AvailabilityPage = ({ profile, eventType }: Props) => {
         router.replace(`/${eventOwner.username}`);
     }
   }, [contracts, eventType.metadata.smartContractAddress, eventType.users, router]);
+
+  const onConfirm = () => {
+    console.log("s");
+  };
 
   const [recurringEventCount, setRecurringEventCount] = useState(eventType.recurringEvent?.count);
 
@@ -703,7 +710,7 @@ const AvailabilityPage = ({ profile, eventType }: Props) => {
 
           {selectedSlots.length > 0 && (
             <div className="mt-5 text-right">
-              <Button className="pt-2">
+              <Button className="pt-2" onClick={onConfirm}>
                 Confirm {selectedSlots.length} booking{selectedSlots.length > 1 ? "s" : ""}
               </Button>
               <pre>{JSON.stringify(selectedSlots)}</pre>
