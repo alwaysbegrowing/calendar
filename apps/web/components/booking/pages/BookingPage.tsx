@@ -49,6 +49,7 @@ import createRecurringBooking from "@lib/mutations/bookings/create-recurring-boo
 import { parseDate, parseRecurringDates } from "@lib/parseDate";
 import slugify from "@lib/slugify";
 import { collectPageParameters, telemetryEventTypes, useTelemetry } from "@lib/telemetry";
+import { BookingResponse } from "@lib/types/booking";
 
 import CustomBranding from "@components/CustomBranding";
 import AvatarGroup from "@components/ui/AvatarGroup";
@@ -209,6 +210,10 @@ const BookingPage = ({
   const rescheduleUid = router.query.rescheduleUid as string;
   const { isReady, Theme } = useTheme(profile.theme);
   const date = asStringOrNull(router.query.date);
+  let dates = [[date]];
+  try {
+    dates = JSON.parse(date);
+  } catch {}
 
   const [guestToggle, setGuestToggle] = useState(booking && booking.attendees.length > 1);
 
@@ -399,28 +404,38 @@ const BookingPage = ({
       }));
       recurringMutation.mutate(recurringBookings);
     } else {
-      mutation.mutate({
-        ...booking,
-        web3Details,
-        start: dayjs(date).format(),
-        end: dayjs(date).add(eventType.length, "minute").format(),
-        eventTypeId: eventType.id,
-        eventTypeSlug: eventType.slug,
-        timeZone: timeZone(),
-        language: i18n.language,
-        rescheduleUid,
-        bookingUid: router.query.bookingUid as string,
-        user: router.query.user,
-        location: getLocationValue(
-          booking.locationType ? booking : { ...booking, locationType: selectedLocation }
-        ),
-        metadata,
-        customInputs: Object.keys(booking.customInputs || {}).map((inputId) => ({
-          label: eventType.customInputs.find((input) => input.id === parseInt(inputId))?.label || "",
-          value: booking.customInputs && inputId in booking.customInputs ? booking.customInputs[inputId] : "",
-        })),
-        hasHashedBookingLink,
-        hashedLink,
+      const promises: Promise<BookingResponse>[] = [];
+      dates[0].forEach((d) => {
+        promises.push(
+          createBooking({
+            ...booking,
+            web3Details,
+            start: dayjs(d).format(),
+            end: dayjs(d).add(eventType.length, "minute").format(),
+            eventTypeId: eventType.id,
+            eventTypeSlug: eventType.slug,
+            timeZone: timeZone(),
+            language: i18n.language,
+            rescheduleUid,
+            bookingUid: router.query.bookingUid as string,
+            user: router.query.user,
+            location: getLocationValue(
+              booking.locationType ? booking : { ...booking, locationType: selectedLocation }
+            ),
+            metadata,
+            customInputs: Object.keys(booking.customInputs || {}).map((inputId) => ({
+              label: eventType.customInputs.find((input) => input.id === parseInt(inputId))?.label || "",
+              value:
+                booking.customInputs && inputId in booking.customInputs ? booking.customInputs[inputId] : "",
+            })),
+            hasHashedBookingLink,
+            hashedLink,
+          })
+        );
+      });
+
+      Promise.all(promises).then(() => {
+        alert("all done!");
       });
     }
   };
@@ -542,7 +557,11 @@ const BookingPage = ({
                   <CalendarIcon className="mr-[10px] ml-[2px] inline-block h-4 w-4" />
                   <div className="-mt-1">
                     {(rescheduleUid || !eventType.recurringEvent?.freq) &&
-                      parseDate(dayjs(date).tz(timeZone()), i18n)}
+                      dates[0].map((d, i) => (
+                        <div date-date={d} key={i}>
+                          {parseDate(dayjs(d).tz(timeZone()), i18n)}
+                        </div>
+                      ))}
                     {!rescheduleUid &&
                       eventType.recurringEvent?.freq &&
                       recurringStrings.slice(0, 5).map((aDate, key) => <p key={key}>{aDate}</p>)}

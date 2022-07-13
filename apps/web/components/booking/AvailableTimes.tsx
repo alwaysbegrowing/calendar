@@ -110,42 +110,40 @@ const AvailableTimes: FC<AvailableTimesProps> = ({
                       {!!seatsPerTimeSlot && <p className="text-sm">{t("booking_full")}</p>}
                     </div>
                   ) : (
-                    <Link href={bookingUrl} prefetch={false}>
-                      <a
-                        onClick={() => {
-                          if (selectedSlots.includes(slot.time)) {
-                            setSelectedSlots(selectedSlots.filter((s) => s !== slot.time));
-                          } else {
-                            setSelectedSlots([...selectedSlots, slot.time]);
-                          }
-                        }}
-                        className={classNames(
-                          "text-primary-500  hover:bg-brand hover:text-brandcontrast dark:hover:bg-darkmodebrand dark:hover:text-darkmodebrandcontrast mb-2 block rounded-sm border bg-white py-4 font-medium hover:cursor-pointer hover:text-white dark:border-transparent dark:bg-gray-600 dark:text-neutral-200 dark:hover:border-black",
-                          brand === "#fff" || brand === "#ffffff" ? "border-brandcontrast" : "border-brand",
-                          selectedSlots.includes(slot.time)
-                            ? `!dark:bg-darkmodebrand
+                    <a
+                      onClick={() => {
+                        if (selectedSlots.includes(slot.time)) {
+                          setSelectedSlots(selectedSlots.filter((s) => s !== slot.time));
+                        } else {
+                          setSelectedSlots([...selectedSlots, slot.time]);
+                        }
+                      }}
+                      className={classNames(
+                        "text-primary-500  hover:bg-brand hover:text-brandcontrast dark:hover:bg-darkmodebrand dark:hover:text-darkmodebrandcontrast mb-2 block rounded-sm border bg-white py-4 font-medium hover:cursor-pointer hover:text-white dark:border-transparent dark:bg-gray-600 dark:text-neutral-200 dark:hover:border-black",
+                        brand === "#fff" || brand === "#ffffff" ? "border-brandcontrast" : "border-brand",
+                        selectedSlots.includes(slot.time)
+                          ? `!dark:bg-darkmodebrand
                       !dark:text-darkmodebrandcontrast
                       !dark:border-black !bg-brand
                       !text-brandcontrast !text-white`
-                            : ""
-                        )}
-                        data-testid="time">
-                        {dayjs(slot.time).tz(timeZone()).format(timeFormat)}
-                        {!!seatsPerTimeSlot && (
-                          <p
-                            className={`${
-                              slot.attendees && slot.attendees / seatsPerTimeSlot >= 0.8
-                                ? "text-rose-600"
-                                : slot.attendees && slot.attendees / seatsPerTimeSlot >= 0.33
-                                ? "text-yellow-500"
-                                : "text-emerald-400"
-                            } text-sm`}>
-                            {slot.attendees ? seatsPerTimeSlot - slot.attendees : seatsPerTimeSlot} /{" "}
-                            {seatsPerTimeSlot} {t("seats_available")}
-                          </p>
-                        )}
-                      </a>
-                    </Link>
+                          : ""
+                      )}
+                      data-testid="time">
+                      {dayjs(slot.time).tz(timeZone()).format(timeFormat)}
+                      {!!seatsPerTimeSlot && (
+                        <p
+                          className={`${
+                            slot.attendees && slot.attendees / seatsPerTimeSlot >= 0.8
+                              ? "text-rose-600"
+                              : slot.attendees && slot.attendees / seatsPerTimeSlot >= 0.33
+                              ? "text-yellow-500"
+                              : "text-emerald-400"
+                          } text-sm`}>
+                          {slot.attendees ? seatsPerTimeSlot - slot.attendees : seatsPerTimeSlot} /{" "}
+                          {seatsPerTimeSlot} {t("seats_available")}
+                        </p>
+                      )}
+                    </a>
                   )}
                 </div>
               );
